@@ -2208,7 +2208,7 @@ int main(int argc, char **argv) {
     spectrum_palette = spectrum_palette_color;
     spectrum_palette_size = spectrum_palette_color_size;
 
-    if (!isatty(fileno(stdout)) && (getenv("FAKETTY") == NULL))
+    if (!isatty(fileno(stdout)) && (getenv("FAKETTY") == NULL))//有可能输出导出到某个文件
         config.output = OUTPUT_RAW;
     else
         config.output = OUTPUT_STANDARD;
