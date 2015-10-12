@@ -816,20 +816,20 @@ struct redisServer {
     char *masterhost;               /* Hostname of master */
     int masterport;                 /* Port of master */
     int repl_timeout;               /* Timeout after N seconds of master idle */
-    redisClient *master;     /* Client that is master for this slave */
-    redisClient *cached_master; /* Cached master to be reused for PSYNC. */
-    int repl_syncio_timeout; /* Timeout for synchronous I/O calls */
-    int repl_state;          /* Replication status if the instance is a slave */
-    off_t repl_transfer_size; /* Size of RDB to read from master during sync. */
-    off_t repl_transfer_read; /* Amount of RDB read from master during sync. */
+    redisClient *master;            /* Client that is master for this slave */
+    redisClient *cached_master;     /* Cached master to be reused for PSYNC. */
+    int repl_syncio_timeout;        /* Timeout for synchronous I/O calls */
+    int repl_state;                 /* Replication status if the instance is a slave */
+    off_t repl_transfer_size;       /* Size of RDB to read from master during sync. */
+    off_t repl_transfer_read;       /* Amount of RDB read from master during sync. */
     off_t repl_transfer_last_fsync_off; /* Offset when we fsync-ed last time. */
-    int repl_transfer_s;     /* Slave -> Master SYNC socket */
-    int repl_transfer_fd;    /* Slave -> Master SYNC temp file descriptor */
-    char *repl_transfer_tmpfile; /* Slave-> master SYNC temp file name */
-    time_t repl_transfer_lastio; /* Unix time of the latest read, for timeout */
-    int repl_serve_stale_data; /* Serve stale data when link is down? */
-    int repl_slave_ro;          /* Slave is read only? */
-    time_t repl_down_since; /* Unix time at which link with master went down */
+    int repl_transfer_s;            /* Slave -> Master SYNC socket */
+    int repl_transfer_fd;           /* Slave -> Master SYNC temp file descriptor */
+    char *repl_transfer_tmpfile;    /* Slave-> master SYNC temp file name */
+    time_t repl_transfer_lastio;    /* Unix time of the latest read, for timeout */
+    int repl_serve_stale_data;      /* Serve stale data when link is down? */
+    int repl_slave_ro;              /* Slave is read only? */
+    time_t repl_down_since;         /* Unix time at which link with master went down */
     int repl_disable_tcp_nodelay;   /* Disable TCP_NODELAY after SYNC? */
     int slave_priority;             /* Reported in INFO and used by Sentinel. */
     char repl_master_runid[REDIS_RUN_ID_SIZE+1];  /* Master run id for PSYNC. */
